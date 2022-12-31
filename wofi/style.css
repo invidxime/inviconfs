@@ -1,60 +1,72 @@
+* {
+  font-family:  JetBrains Mono Nerd Font;
+  font-size: 15px;
+  font-weight: 400;
+  outline-style: none;
+}
+
+
 window {
-margin: 0px;
-border: 2px solid #f5c2e7;
-border-radius: 15px;
-background-color: #1b1b1b;
-font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-font-size: 16px;
-color:#f5c2e7;
+  margin: 0px;
+  border: 5px solid #111019;
+  background-color: rgba(11, 10, 16, 0.9);
+  border-radius: 15px;
 }
 
 #input {
-margin: 5px;
-border: none;
-background-color:#1b1b1b;
-border-radius: 15px;
-color:#f5c2e7;
-}
-
-#input image {
-	color: #f5c2e7;
+  all: unset;
+  min-height: 36px;
+  padding: 4px 10px;
+  margin: 4px;
+  border: none;
+  color: #e2e0ec;
+  font-weight: bold;
+  background-color: #161420;
+  outline: none;
+  border-radius: 15px;
+  margin: 10px;
+  margin-bottom: 2px;
 }
 
 #inner-box {
-margin: 5px;
-border: none;
+  margin: 4px;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 15px;
 }
 
 #outer-box {
-margin: 5px;
-border: none;
+  margin: 0px;
+  padding: 3px;
+  border: none;
+  border-radius: 15px;
+  border: 5px solid #111019;
 }
 
-#text {
-#background-color: #1b1b1b;
-margin: 5px;
-border: 0px;
-border-radius: 0px;
-#color: #f5c2e7;
-#box-shadow: inset 0 -3px transparent;
-font-weight: normal;
-}
-
-#entry:selected {
-	background-color: #f5c2e7;
-	border: 0px;
-	border-radius: 2.5px;
-	color:#1b1b1b;
-	box-shadow: inset 0 -3px transparent;
-	font-weight: normal;
+#scroll {
+  margin-top: 5px;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 5px;
 }
 
 #text:selected {
-	background-color: #f5c2e7;
-	margin: 5px;
-	border: 100px;
-	border-radius: 10px;
-	color:#1b1b1b;
-	box-shadow: inset 0 -3px transparent;
-	font-weight: normal;
+  color: #f1f0f5;
+  margin: 0px 0px;
+  border: none;
+  border-radius: 15px;
+}
+
+#entry {
+  margin: 0px 0px;
+  border: none;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+#entry:selected {
+  margin: 0px 0px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #f5c2e7 0%, #f5c2e7 100%);
 }
