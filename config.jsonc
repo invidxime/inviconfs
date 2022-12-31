@@ -1,0 +1,46 @@
+{
+    "position": "top",
+    "modules-left": ["wlr/workspaces"],
+    // "modules-center": [""],
+    "modules-right": ["network", "pulseaudio", "tray", "clock"],
+    
+    // Modules configuration
+
+	"wlr/workspaces": {
+		"format":"{icon}",
+		"on-click":"activate",
+	 	"persistent_workspaces": {
+	 		"1": [],
+	 		"2": [],
+	 		"3": [],
+	 		"4": [],
+	 		"5": [],
+		}
+
+    },
+	"clock": {
+		"format": "{:%a %d %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+
+	},
+	"network": {
+        "format-wifi": "<span size='13000' foreground='#F5C2E7'></span>",
+        "format-ethernet": "<span size='13000' foreground='#F5C2E7'> </span>",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "<span size='13000' foreground='#F5C2E7'> </span>Disconnected",
+	},
+	"pulseaudio": {
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"format": "<span size='11000' foreground='#F5C2E7'>{icon}</span>",
+		"tooltip-format": "{volume}% - {desc}",
+        "format-muted": "<span size='11000' foreground='#F5C2E7'></span>",
+	"format-icons": {
+            "default": ["", ""],
+	},
+
+	"tray": {
+    	    "icon-size": 15,
+    	    "spacing": 30,
+	}
+    }
+}
