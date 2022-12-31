@@ -1,0 +1,21 @@
+text-color=#dedede
+background-color=#030303
+border-color=#303446
+default-timeout=10000
+font=JetBrains Mono Nerd Font 12
+border-radius=8
+border-size=2
+width=350
+height=300
+anchor=top-right
+padding=18
+
+
+[urgency=high]
+border-color=#4f6580
+default-timeout=0
+border-size=5
+layer=overlay
+
+[mode=dnd]
+invisible=1
