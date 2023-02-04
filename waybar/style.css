@@ -1,46 +1,59 @@
-{
-    "position": "top",
-    "modules-left": ["wlr/workspaces"],
-    // "modules-center": [""],
-    "modules-right": ["network", "pulseaudio", "tray", "clock"],
-    
-    // Modules configuration
-
-	"wlr/workspaces": {
-		"format":"{icon}",
-		"on-click":"activate",
-	 	"persistent_workspaces": {
-	 		"1": [],
-	 		"2": [],
-	 		"3": [],
-	 		"4": [],
-	 		"5": [],
-		}
-
-    },
-	"clock": {
-		"format": "{:%a %d %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-
-	},
-	"network": {
-        "format-wifi": "<span size='13000' foreground='#F5C2E7'></span>",
-        "format-ethernet": "<span size='13000' foreground='#F5C2E7'> </span>",
-        "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": "<span size='13000' foreground='#F5C2E7'> </span>Disconnected",
-	},
-	"pulseaudio": {
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"format": "<span size='11000' foreground='#F5C2E7'>{icon}</span>",
-		"tooltip-format": "{volume}% - {desc}",
-        "format-muted": "<span size='11000' foreground='#F5C2E7'></span>",
-	"format-icons": {
-            "default": ["", ""],
-	},
-
-	"tray": {
-    	    "icon-size": 15,
-    	    "spacing": 30,
-	}
-    }
+* {
+    font-family: JetBrains Mono Nerd Font;
+    font-size: 10pt;
+    min-height: 5px;
 }
+
+window#waybar {
+    background: transparent;
+    color: #cba6f7;
+}
+
+
+tooltip {
+	background: #1e1e2e;
+	border-radius: 15px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #181825;
+	}
+
+#workspaces {
+    border-radius: 0px 15px 15px 0px;
+    margin-top: 10px;
+}
+
+#workspaces button {
+    padding: 5px;
+    color: #4e4b4f;
+}
+
+#workspaces button.active {
+    color: #cba6f7;
+}
+
+#workspaces button.focused {
+    color: #a6adc8;
+    background: #a0ebde;
+    border-radius: 10px;
+}
+
+#workspaces button.urgent {
+    color: #F9C096;
+}
+
+#workspaces button:hover {
+    background: #332e41;
+    border-color: #332e41;
+    border-radius: 15px;
+}
+
+#clock, #pulseaudio, #workspaces, #tray {
+    background: #11111b;
+    padding: 0px 10px;
+    margin-top: 5px;
+}
+
+#clock {
+    padding-left: 15px;
+    }

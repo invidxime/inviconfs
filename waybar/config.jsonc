@@ -1,46 +1,64 @@
 {
     "position": "top",
-    "modules-left": ["wlr/workspaces"],
-    // "modules-center": [""],
-    "modules-right": ["network", "pulseaudio", "tray", "clock"],
+    "layer": "top",
+    "modules-left": ["clock", "wlr/workspaces"],
+    "modules-right": ["pulseaudio", "pulseaudio#microphone", "tray"],
     
     // Modules configuration
 
 	"wlr/workspaces": {
 		"format":"{icon}",
 		"on-click":"activate",
+		"all-outputs": "true",
 	 	"persistent_workspaces": {
 	 		"1": [],
 	 		"2": [],
 	 		"3": [],
 	 		"4": [],
 	 		"5": [],
+			"6": [],
+			"7": [],
+	 		"8": [],
+	 		"9": [],
+	 		"10": []
 		}
+     },
 
+  "clock": {
+        "format": "{: %R   %d/%m}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+	},
+	
+  "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
     },
-	"clock": {
-		"format": "{:%a %d %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+        "scroll-step": 5
+    },
 
-	},
-	"network": {
-        "format-wifi": "<span size='13000' foreground='#F5C2E7'></span>",
-        "format-ethernet": "<span size='13000' foreground='#F5C2E7'> </span>",
-        "format-linked": "{ifname} (No IP)  ",
-        "format-disconnected": "<span size='13000' foreground='#F5C2E7'> </span>Disconnected",
-	},
-	"pulseaudio": {
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"format": "<span size='11000' foreground='#F5C2E7'>{icon}</span>",
-		"tooltip-format": "{volume}% - {desc}",
-        "format-muted": "<span size='11000' foreground='#F5C2E7'></span>",
-	"format-icons": {
-            "default": ["", ""],
-	},
-
-	"tray": {
-    	    "icon-size": 15,
-    	    "spacing": 30,
-	}
+    "tray": {
+        "icon-size": 13,
+    	"spacing": 10
     }
 }
