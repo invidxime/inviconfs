@@ -1,35 +1,10 @@
 {
-    "position": "top",
-    "layer": "top",
-    "modules-left": ["clock", "wlr/workspaces"],
-    "modules-right": ["pulseaudio", "pulseaudio#microphone", "tray"],
-    
-    // Modules configuration
-
-	"wlr/workspaces": {
-		"format":"{icon}",
-		"on-click":"activate",
-		"all-outputs": "true",
-	 	"persistent_workspaces": {
-	 		"1": [],
-	 		"2": [],
-	 		"3": [],
-	 		"4": [],
-	 		"5": [],
-			"6": [],
-			"7": [],
-	 		"8": [],
-	 		"9": [],
-	 		"10": []
-		}
-     },
-
-  "clock": {
-        "format": "{: %R   %d/%m}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-	},
+	"layer": "top",
+	"modules-left": ["custom/launcher","cpu","memory","tray"],
+	"modules-center": ["wlr/workspaces"],
+	"modules-right": ["pulseaudio","pulseaudio#microphone","clock","custom/powermenu"],
 	
-  "pulseaudio": {
+    "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": false,
         "format-muted": " Muted",
@@ -38,27 +13,54 @@
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
         "scroll-step": 5,
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
             "default": ["", "", ""]
         }
-    },
+},
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " Muted",
+        "format-source": "",
+        "format-source-muted": "",
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
         "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
         "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
         "scroll-step": 5
+    },	
+
+       	"tray":{
+		"icon-size":18,
+		"spacing": 10
+	},
+  "wlr/workspaces": {
+        "format": "{icon}",
+        "format-active": " {icon} ",
+        "on-click": "activate"
     },
 
-    "tray": {
-        "icon-size": 13,
-    	"spacing": 10
+    "clock": {
+        "format": "{: %H:%M   %d/%m/%Y}"
+    },
+
+    "cpu": {
+        "interval": 15,
+        "format": " {}%",
+        "max-length": 10
+    },
+
+    "memory": {
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
+    },
+
+    "custom/launcher":{
+	"interval": "once",
+        "format": "",
+	"on-click": "rofi -show drun"
+    },
+
+    "custom/powermenu": {
+	    "format": "",
+	    "on-click": "~/.config/hypr/scripts/powermenu.sh",
+	    "tool-tip": false
     }
 }
