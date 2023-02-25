@@ -1,9 +1,9 @@
 * {
-    accent: #cba6f7;
+    accent: #f5c2e7;
     background:     #1e1e2e;
     background-alt: #181825;
     foreground:     #cdd6f4;
-    selected:       #cba6f7;
-    active:         #cba6f7;
+    selected:       #f5c2e7;
+    active:         #f5c2e7;
     urgent:         #f38ba8;
 }
