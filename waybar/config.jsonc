@@ -1,16 +1,19 @@
 {
 	"layer": "top",
-	"modules-left": ["custom/launcher","cpu","memory","tray"],
-	"modules-center": ["wlr/workspaces"],
-	"modules-right": ["pulseaudio","pulseaudio#microphone","clock","custom/powermenu"],
+	"position": "top",
+	"modules-left": ["custom/powermenu","wlr/workspaces"],
+	"modules-center": ["custom/dunst","clock"],
+	"modules-right": ["tray","pulseaudio","pulseaudio#microphone"],
+	"width": 1800,
+	"margin-top": 5,
 	
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": false,
         "format-muted": " Muted",
-        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
         "scroll-step": 5,
         "format-icons": {
             "default": ["", "", ""]
@@ -20,10 +23,8 @@
         "format": "{format_source}",
         "format-source": "",
         "format-source-muted": "",
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
-        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
-        "scroll-step": 5
+        "on-click": "pamixer --default-source -t",
+        "tooltip": false
     },	
 
        	"tray":{
@@ -37,30 +38,41 @@
     },
 
     "clock": {
-        "format": "{: %H:%M   %d/%m/%Y}"
+        "format": "{:%H:%M:%S}",
+	"interval": 1,
+	"tooltip-format": "<tt><small>{calendar}</small></tt>",
+	 "calendar": {
+                    "mode": "month",
+                    "mode-mon-col": 3,
+                    "on-scroll": 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+	 },
+	 "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
     },
 
-    "cpu": {
-        "interval": 15,
-        "format": " {}%",
-        "max-length": 10
-    },
-
-    "memory": {
-        "interval": 30,
-        "format": " {}%",
-        "max-length": 10
-    },
-
-    "custom/launcher":{
-	"interval": "once",
-        "format": "",
-	"on-click": "rofi -show drun"
+    "custom/dunst": {
+    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "on-click": "dunstctl set-paused toggle",
+    "on-click-right": "dunstctl history-pop",
+    "restart-interval": 1,
+    "tooltip": false
     },
 
     "custom/powermenu": {
 	    "format": "",
 	    "on-click": "~/.config/hypr/scripts/powermenu.sh",
-	    "tool-tip": false
+	    "tooltip": false
     }
 }
