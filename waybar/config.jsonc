@@ -1,78 +1,72 @@
 {
 	"layer": "top",
 	"position": "top",
-	"modules-left": ["custom/powermenu","wlr/workspaces"],
-	"modules-center": ["custom/dunst","clock"],
-	"modules-right": ["tray","pulseaudio","pulseaudio#microphone"],
-	"width": 1800,
-	"margin-top": 5,
+	"modules-left": ["wlr/workspaces", "custom/dunst"],
+	"modules-center": ["clock"],
+	"modules-right": ["tray","pulseaudio","pulseaudio#microphone","custom/vm"],
+	"width": 1920,
 	
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "tooltip": false,
-        "format-muted": " Muted",
+        "format": "{icon}",
+        "tooltip-format": "{volume}%",
+        "format-muted": "",
         "on-click": "pamixer -t",
+	"on-click-right": "pavucontrol-qt",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
         "scroll-step": 5,
         "format-icons": {
-            "default": ["", "", ""]
+            "default": ["", "", "󰕾", ""] 
         }
 },
     "pulseaudio#microphone": {
         "format": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "",
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭",
         "on-click": "pamixer --default-source -t",
-        "tooltip": false
+	"tooltip": false
     },	
 
        	"tray":{
-		"icon-size":18,
+		"icon-size": 15,
 		"spacing": 10
 	},
   "wlr/workspaces": {
         "format": "{icon}",
         "format-active": " {icon} ",
-        "on-click": "activate"
+        "on-click": "activate",
+	"sort-by-number": true,
+	"format-icons": {
+    		"11": "1",
+		"12": "2",
+    		"13": "3",
+    		"14": "4",
+   		"15": "5",
+    		"16": "6",
+		"17": "7",
+    		"18": "8",
+    		"19": "9"
+	}
     },
 
     "clock": {
         "format": "{:%H:%M:%S}",
 	"interval": 1,
-	"tooltip-format": "<tt><small>{calendar}</small></tt>",
-	 "calendar": {
-                    "mode": "month",
-                    "mode-mon-col": 3,
-                    "on-scroll": 1,
-                    "on-click-right": "mode",
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-	 },
-	 "actions":  {
-                    "on-click-right": "mode",
-                    "on-click-forward": "tz_up",
-                    "on-click-backward": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
+	"timezone": "",
+	"tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
 
     "custom/dunst": {
-    "exec": "~/.config/waybar/scripts/dunst.sh",
+    "exec": "~/.scripts/dunst.sh",
     "on-click": "dunstctl set-paused toggle",
     "on-click-right": "dunstctl history-pop",
     "restart-interval": 1,
     "tooltip": false
     },
 
-    "custom/powermenu": {
-	    "format": "",
-	    "on-click": "~/.config/hypr/scripts/powermenu.sh",
-	    "tooltip": false
+    "custom/vm": {
+    "on-click": "virsh --connect qemu:///system start 'win10' ",
+    "format": "",
+    "tooltip": false
     }
 }
