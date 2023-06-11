@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "~/.config/hypr/scripts/lock.sh",
+    "action" : "gtklock",
     "text" : "Lock",
     "keybind" : "l"
 }
@@ -24,7 +24,7 @@
 }
 {
     "label" : "suspend",
-    "action" : "swaylock && systemctl suspend",
+    "action" : "systemctl suspend && gtklock",
     "text" : "Suspend",
     "keybind" : "u"
 }
