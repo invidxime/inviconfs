@@ -1,5 +1,10 @@
 # My HYPRLAND Rice
 
-![image](https://user-images.githubusercontent.com/112780421/227607010-38d3086c-2e6b-4223-b831-00734dbb8d29.png)
+![image](https://github.com/mistXML/rice/assets/112780421/8df7fc5d-0a8c-41ba-9d5e-df6f3460cc97)
 
-```yay -S kitty dunst hyprland-git hyprpaper-git swaylock-effects wlogout rofi-lbonn-wayland-git gammastep wl-clipboard sddm-git wl-clipboard grimblast-git```
+Compositor - Hyprland
+Run Menu - Fuzzel
+Wallpaper - Hyprpaper
+Bar - Waybar
+Lockscreen - GTKLock
+Power Menu - WLogout
