@@ -1,22 +1,23 @@
 {
-	"layer": "top",
-	"position": "top",
-	"modules-left": ["wlr/workspaces", "custom/dunst"],
-	"modules-center": ["clock"],
-	"modules-right": ["tray","pulseaudio","pulseaudio#microphone","custom/vm"],
-	"width": 1920,
-	
+        "layer": "top",
+        "position": "top",
+        "modules-left": ["clock", "custom/vm", "pulseaudio", "pulseaudio#microphone"],
+        "modules-center": ["wlr/workspaces"],
+        "modules-right": ["tray", "custom/dunst"],
+        "width": 1900,
+        "margin-top": 5,
+
     "pulseaudio": {
         "format": "{icon}",
         "tooltip-format": "{volume}%",
         "format-muted": "",
         "on-click": "pamixer -t",
-	"on-click-right": "pavucontrol-qt",
+        "on-click-right": "pavucontrol-qt",
         "on-scroll-up": "pamixer -i 5",
         "on-scroll-down": "pamixer -d 5",
         "scroll-step": 5,
         "format-icons": {
-            "default": ["", "", "󰕾", ""] 
+            "default": ["", "", "󰕾", ""]
         }
 },
     "pulseaudio#microphone": {
@@ -24,36 +25,30 @@
         "format-source": "󰍬",
         "format-source-muted": "󰍭",
         "on-click": "pamixer --default-source -t",
-	"tooltip": false
-    },	
+        "tooltip": false
+    },
 
-       	"tray":{
-		"icon-size": 15,
-		"spacing": 10
-	},
+        "tray":{
+                "icon-size": 15,
+                "spacing": 10
+        },
   "wlr/workspaces": {
         "format": "{icon}",
         "format-active": " {icon} ",
         "on-click": "activate",
-	"sort-by-number": true,
-	"format-icons": {
-    		"11": "1",
-		"12": "2",
-    		"13": "3",
-    		"14": "4",
-   		"15": "5",
-    		"16": "6",
-		"17": "7",
-    		"18": "8",
-    		"19": "9"
-	}
+        "sort-by-number": true,
+        "format-icons": {
+                "urgent": "",
+                "active": "",
+                "default": ""
+        }
     },
 
     "clock": {
-        "format": "{:%H:%M:%S}",
-	"interval": 1,
-	"timezone": "",
-	"tooltip-format": "<tt><small>{calendar}</small></tt>"
+        "format": "{:%H:%M}",
+        "interval": 1,
+        "timezone": "Europe/London",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
 
     "custom/dunst": {
@@ -65,7 +60,7 @@
     },
 
     "custom/vm": {
-    "on-click": "virsh --connect qemu:///system start 'win10' ",
+    "on-click-right": "virsh --connect qemu:///system start 'win10' ",
     "format": "",
     "tooltip": false
     }
