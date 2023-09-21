@@ -1,5 +1,5 @@
 window {
-    font-family: Jetbrains Mono Nerd Font;
+    font-family: "Maple Mono SC NF";
     font-size: 14pt;
     color: #cdd6f4; /* text */
     background-color: rgba(30, 30, 46, 0.5);
@@ -20,7 +20,7 @@ button:hover {
 }
 
 button:focus {
-    background-color: #c6a0f6;
+    background-color: #e5b9c6;
     color: #1e1e2e;
 }
 
