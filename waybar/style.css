@@ -1,27 +1,40 @@
 * {
-        border: none;
+	border: none;
         font-family: "Maple Mono SC NF" ;
-        font-size: 12px;
+	font-size: 12px;
 }
 
 window#waybar {
-        background: #181926;
-        border-radius: 5px;
+	background: transparent;
+	border-radius: 10px;
 }
 
 #clock,
 #workspaces,
 #custom-powermenu,
 #custom-dunst,
-#pulseaudio {
+#pulseaudio,
+#pulseaudio-microphone,
+#custom-vm,
+#tray,
+#custom-distro {
     margin-right: 10px;
 }
 
 #workspaces button {
+    transition: none;
     font-weight: bold;
     color: #313244;
-    padding: 5px;
-    border-radius: 100px;
+    background: #181926;
+    padding-right: 8px;
+    padding-left: 8px;
+    margin-right: 0px;
+    margin-left: 0px;
+    border-radius: 0px;
+}
+
+#workspaces button:last-child {
+	border-radius: 0px 10px 10px 0px;
 }
 
 #workspaces button.active{
@@ -30,44 +43,79 @@ window#waybar {
 }
 
 #custom-dunst {
-        transition: none;
-        color: #e5b9c6;
-        font-family: "Ubuntu Mono Nerd Font" ;
-        font-size: 12px;
-        padding-right: 10px;
+    	transition: none;
+	color: #e5b9c6;
+	background: #181926;
+	font-family: "Ubuntu Mono Nerd Font";
+	font-size: 12px;
+	padding-right: 15px;
+	margin-left: 0px;
+	border-radius: 0px 10px 10px 0px;
 }
 
 #clock {
-        transition: none;
-        color: #e5b9c6;
-        font-weight: bolder;
-        padding-left: 10px;
+	transition: none;
+	color: #e5b9c6;
+	background: #181926;
+	font-weight: bolder;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	font-family: "Ubuntu Mono Nerd Font";
+	font-size: 12px;
 }
 
 #tray {
-        margin-right: 10px;
-        transition: none;
-        color: #B5E8E0;
+	margin-right: 10px;
+	padding-left: 8px;
+	padding-right: 8px;
+	transition: none;
+	color: #B5E8E0;
+	background: #181926;
+	border-radius: 10px;
 }
 
 #pulseaudio {
-        transition: none;
-        color: #e5b9c6;
-        font-family: "Ubuntu Mono Nerd Font" ;
-        font-size: 14px;
+	transition: none;
+	color: #e5b9c6;
+	background: #181926;
+	padding-left: 10px;
+	padding-right: 6px;
+	margin-right: 0px;
+	font-family: "Ubuntu Mono Nerd Font" ;
+	font-size: 14px;
+	border-radius: 10px 0px 0px 10px;
 }
 
 #pulseaudio.microphone {
-        transition: none;
-        color: #e5b9c6;
-        font-family: "Ubuntu Mono Nerd Font" ;
-        font-size: 14px;
+	transition: none;
+	color: #e5b9c6;
+	background: #181926;
+	margin-right: 0px;
+	padding-right: 2px;
+	font-family: "Ubuntu Mono Nerd Font" ;
+	font-size: 14px;
+	border-radius: 0px;
 }
 
 #custom-vm {
-        transition: none;
-        color: #e5b9c6;
-        padding-right: 15px;
-        font-family: "Ubuntu Mono Nerd Font" ;
-        font-size: 12px;
+	transition: none;
+	color: #e5b9c6;
+	background: #181926;
+	padding-right: 16px;
+	padding-left: 10px;
+	margin-right: 0px;
+	font-family: "Ubuntu Mono Nerd Font" ;
+	font-size: 12px;
+}
+
+#custom-distro {
+	background: #181926;
+	color: #e5b9c6;
+	margin-right: 0px;
+	padding-left: 8px;
+	padding-right: 15px;
+	border-radius: 10px 0px 0px 10px;
+	font-family: "Ubuntu Mono Nerd Font";
+	font-size: 20px;
 }
